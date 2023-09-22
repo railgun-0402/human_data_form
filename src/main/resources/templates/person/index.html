@@ -13,6 +13,7 @@
   </style>
 </head>
 <body>
+    <h2>登録</h2>
     <form th:action="@{/create}" th:object="${person}" method="post">
         <label>名前</label>
         <input type="text" th:field="*{name}" th:errorclass="invalid"><br>
@@ -29,5 +30,23 @@
 
         <button>送信</button>
     </form>
+
+    <h2>一覧</h2>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>name</td>
+          <td>age</td>
+          <td>email</td>
+        </tr>
+      </thead>
+      <tr th:each="person: ${people}">
+        <td>[[${person.id}]]</td>
+        <td>[[${person.name}]]</td>
+        <td>[[${person.age}]]</td>
+        <td>[[${person.email}]]</td>
+      </tr>
+    </table>
 </body>
 </html>
