@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Person</title>
+  <style>
+    .red {
+      color: red;
+    }
+    .invalid {
+      border: 2px solid red;
+    }    
+  </style>
 </head>
 <body>
     <form th:action="@{/create}" th:object="${person}" method="post">
         <label>名前</label>
-        <input type="text" name="name"><br>
+        <input type="text" th:field="*{name}" th:errorclass="invalid"><br>
+        <div class="red" th:errors="*{name}"></div>
+
         <label>年齢</label>
-        <input type="number" th:field="*{age}"><br>
+        <input type="number" th:field="*{age}" th:errorclass="invalid"><br>
+        <div class="red" th:errors="*{age}"></div>
+
+
         <label>メールアドレス</label>
-        <input type="email" th:field="*{email}"><br>
+        <input type="text" th:field="*{email}" th:errorclass="invalid"><br>
+        <div class="red" th:errors="*{email}"></div>
+
         <button>送信</button>
     </form>
 </body>
