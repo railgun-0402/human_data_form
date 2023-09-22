@@ -46,6 +46,7 @@
         <td>[[${person.name}]]</td>
         <td>[[${person.age}]]</td>
         <td>[[${person.email}]]</td>
+        <td><a th:href="@{/edit/{id}(id=${person.id})}">編集</a></td>
         <td><a th:href="@{/delete/{id}(id=${person.id})}">削除</a></td>
       </tr>
     </table>
