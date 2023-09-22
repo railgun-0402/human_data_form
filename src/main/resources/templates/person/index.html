@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Person</title>
+</head>
+<body>
+    <form th:action="@{/create}" th:object="${person}" method="post">
+        <label>名前</label>
+        <input type="text" name="name"><br>
+        <label>年齢</label>
+        <input type="number" th:field="*{age}"><br>
+        <label>メールアドレス</label>
+        <input type="email" th:field="*{email}"><br>
+        <button>送信</button>
+    </form>
+</body>
+</html>
